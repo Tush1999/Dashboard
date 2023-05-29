@@ -1,7 +1,7 @@
 import React from "react";
 import AuthElems from "../auth-elems";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div className="header ">
       <div className="container flex justify-between align-center">
@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex align-center">
             <AuthElems />
           <div className="header-user">
-            <i class="fa fa-user" aria-hidden="true"></i>
+            <i className="fa fa-user" aria-hidden="true"></i>
           </div>
         </div>
       </div>

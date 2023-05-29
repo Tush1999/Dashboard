@@ -1,26 +1,50 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  PropsWithChildren
+} from "react";
 import axios from "axios";
 
 import { getUserToken, setUserToken } from "../../helpers/auth";
 
-export const UserAuthContext = createContext(null);
+export interface User {
+  name: string;
+  password: string;
+}
 
-const DEFAULT_ARR = [];
+export interface UserAuthContextProps {
+  userName: string;
+  setUserName: React.Dispatch<React.SetStateAction<string>>;
+  userPassword: string;
+  setUserPassword: React.Dispatch<React.SetStateAction<string>>;
+  handleSubmit: (evt: React.FormEvent) => void;
+  isAuthenticated: boolean | null;
+  onLogout: () => void;
+  userToken: string | null;
+  errors: string;
+}
 
-const UserAuthProvider = ({ children = null }) => {
+export const UserAuthContext = createContext<UserAuthContextProps | null>(null);
+
+const DEFAULT_ARR: User[] = [];
+
+const UserAuthProvider: React.FC<PropsWithChildren<UserAuthContextProps>> = ({ children }) => {
   const [userName, setUserName] = useState("");
   const [userPassword, setUserPassword] = useState("");
-  const [authenticatedUsers, setAuthenticatedUsers] = useState(DEFAULT_ARR);
-  const [isAuthenticated, setIsAuthenticated] = useState(null);
+  const [authenticatedUsers, setAuthenticatedUsers] =
+    useState<User[]>(DEFAULT_ARR);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [errors, setErrors] = useState("");
+
+  const userToken = getUserToken()
 
   const onLogout = () => {
     setUserToken("");
-    debugger
     setIsAuthenticated(false);
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt: React.FormEvent) => {
     evt.preventDefault();
 
     const isAuthenticatedUser = authenticatedUsers.some(
@@ -43,7 +67,7 @@ const UserAuthProvider = ({ children = null }) => {
   useEffect(() => {
     const fetchUsersData = async () => {
       try {
-        const response = await axios.get("/users.json");
+        const response = await axios.get<{ users: User[] }>("/users.json");
         setAuthenticatedUsers(response.data.users);
         return response;
       } catch {
@@ -63,7 +87,7 @@ const UserAuthProvider = ({ children = null }) => {
         handleSubmit,
         isAuthenticated,
         onLogout,
-        userToken: getUserToken(),
+        userToken,
         errors
       }}
     >
