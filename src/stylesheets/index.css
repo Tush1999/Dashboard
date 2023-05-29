@@ -1,0 +1,58 @@
+@import "./header.css";
+@import "./login.css";
+@import "./todo.css";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container {
+    max-width: 117rem;
+    margin: 0 auto;
+    width: 90%;
+    position: relative;
+}
+
+.pb20 {
+    padding-bottom: 20px;
+}
+
+.py30 {
+    padding: 30px 0;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+.flex {
+    display: flex;
+}
+.align-center {
+    align-items: center;
+}
+.justify-between {
+    justify-content: space-between;
+}
+button {
+    border: none;
+    padding: 15px 30px;
+    color: #fff;
+    font-weight: 600;
+    background: #3c4852;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.width-100 {
+    width: 100%;
+}
+.mt10 {
+    margin-top: 10px;
+}
+.pl10 {
+    padding-right: 10px;
+}
+button[disabled] {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

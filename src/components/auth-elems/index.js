@@ -4,8 +4,12 @@ import { UserAuthContext } from "../contexts/user-auth";
 
 const AuthElems = () => {
   const { onLogout, userToken } = useContext(UserAuthContext);
-
-  return userToken ? <div onClick={onLogout}>Log Out</div> : <div>Log In</div>;
+  const handleClick = () => {
+    debugger
+    onLogout()
+  }
+  debugger
+  return userToken ? <button onClick={handleClick}>Log Out</button> : <button>Log In</button>;
 };
 
 export default AuthElems;

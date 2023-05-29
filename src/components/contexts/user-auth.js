@@ -16,6 +16,7 @@ const UserAuthProvider = ({ children = null }) => {
 
   const onLogout = () => {
     setUserToken("");
+    debugger
     setIsAuthenticated(false);
   };
 

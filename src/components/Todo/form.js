@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v1 as uuid } from "uuid";
 
-const TodoListForm = ({ addTodo, taskLevel = 1, parentId }) => {
+const TodoListForm = ({ addTodo, taskLevel = 1, parentId, placeholder = "Add New task" }) => {
   const [task, setTask] = useState("");
 
   const handleSubmit = (evt) => {
@@ -11,14 +11,14 @@ const TodoListForm = ({ addTodo, taskLevel = 1, parentId }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Add your todo list</label>
+    <form onSubmit={handleSubmit} className="todo mt10">
       <input
         type="text"
         value={task}
         onChange={(e) => setTask(e.target.value)}
+        placeholder={placeholder}
       />
-      <button>Add Todo</button>
+      <button disabled={!task?.length}>Add</button>
     </form>
   );
 };

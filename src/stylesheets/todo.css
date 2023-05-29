@@ -1,0 +1,63 @@
+.main-head{
+    font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      padding-bottom: 10px;
+      position: relative;
+      text-transform: uppercase;
+      color: #3c4852;
+      
+  }
+  .main-head:before{
+    background:  #3c4852;
+    bottom: 0;
+    content: "";
+    height: 0.2rem;
+    left: 0;
+    position: absolute;
+    width: 5rem;
+  }
+  .icon{
+    position: relative;
+    cursor: pointer;
+  }
+  .icon-hover{
+  position: absolute;
+  top: -25px;
+  background: #3c4852;
+  color: #fff;
+  padding: 5px;
+  white-space: nowrap;
+  border-radius: 5px;
+  font-size: 13px;
+  display: none;
+  }
+  .icon:hover .icon-hover{
+    display: block;
+  }
+  .todo input{
+    padding: 10px;
+  }
+  .todo-list {
+    box-shadow: 0px 16px 32px rgba(233,238,242,.4);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    color: #3c4852;
+    border: 1px solid #000;
+  }
+  .todo-task {
+    font-size: 17px;
+    font-weight: 600;
+    
+  }
+  .todo-taskNAme{
+    padding:0 20px 0 5px;
+  }
+  .todo button{
+    margin-left: 10px;
+  }
+  .todo-subtask{
+    color: #2b3a42;
+    padding: 10px 30px;
+  }

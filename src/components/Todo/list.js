@@ -56,7 +56,7 @@ const TodoList = () => {
 
   return (
     <div>
-      <TodoListForm addTodo={addList} />
+    <TodoListForm addTodo={addList} />
       {renderTaskList}
     </div>
   );

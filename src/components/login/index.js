@@ -2,8 +2,6 @@ import React, { useContext } from "react";
 
 import { UserAuthContext } from "../contexts/user-auth";
 
-import styles from "./main.module.css";
-
 const Login = () => {
   const {
     setUserName,
@@ -13,10 +11,12 @@ const Login = () => {
   } = useContext(UserAuthContext);
 
   return (
-    <div className={styles.container}>
-      <div>Login Up Page</div>
+    <div className="login">
+    <div className="container">
+    <div className="login-inner">
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="pb20">
           <label htmlFor="username">Enter your username</label>
           <input
             type="text"
@@ -34,9 +34,11 @@ const Login = () => {
             onChange={(e) => setUserPassword(e.target.value)}
           />
         </div>
-        <div>{errors}</div>
-        <button type="submit">Submit</button>
+        <div className="err-msg"> {errors}</div>
+        <button type="submit" className="mt20 width-100">Submit</button>
       </form>
+    </div>
+    </div>
     </div>
   );
 };

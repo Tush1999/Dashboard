@@ -1,0 +1,41 @@
+.login{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.login-inner{
+    background: #fff;
+    padding: 30px;
+    width: 100%;
+    box-shadow: 0 16px 32px rgba(221,230,237,.4);
+    border-radius: 16px;
+    margin: auto;
+    max-width: 500px;
+}
+.login-inner h2{
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    color: #3c4852;
+    margin-bottom: 20px;
+}
+.login-inner input{
+    border: 1px solid #dde6ed;
+    border-radius: 4px;
+    padding: 16px;
+    width: 100%;
+}
+.login-inner label{
+    font-size: 16px;
+    padding-bottom: 10px;
+    display: inline-block;
+    color: #3c4852;
+}
+
+.err-msg{
+    color: #eb5757;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 10px 0 0;
+    font-weight: 600;
+}
